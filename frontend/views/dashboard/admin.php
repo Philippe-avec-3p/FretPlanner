@@ -66,13 +66,13 @@ $title = 'Dashboard Admin - FretPlanner';
                 <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
 
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>../../index.php" class="nav-link">
+                    <a href="<?= $config['app']['url'] ?>/profile" class="nav-link">
                         <i class="fas fa-user"></i>
                         <span>Mon Profil</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>../../index.php" class="nav-link" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')">
+                    <a href="<?= $config['app']['url'] ?>/logout" class="nav-link" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Déconnexion</span>
                     </a>
@@ -105,10 +105,10 @@ $title = 'Dashboard Admin - FretPlanner';
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>../../index.php"><i class="fas fa-user me-2"></i>Mon Profil</a></li>
+                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/profile"><i class="fas fa-user me-2"></i>Mon Profil</a></li>
                             <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/admin/settings"><i class="fas fa-cog me-2"></i>Configuration</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>../../index.php" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')"><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</a></li>
+                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/logout" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')"><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</a></li>
                         </ul>
                     </div>
                 </div>
@@ -166,25 +166,25 @@ $title = 'Dashboard Admin - FretPlanner';
                 <div class="card-body">
                     <div class="row g-3">
                         <div class="col-md-6 col-lg-3">
-                            <a href="<?= $config['app']['url'] ?>/admin/users/create" class="btn btn-primary w-100">
-                                <i class="fas fa-user-plus me-2"></i>
-                                Nouvel utilisateur
+                            <a href="<?= $config['app']['url'] ?>/frontend/admin/shipments" class="btn btn-primary w-100">
+                                <i class="fas fa-shipping-fast me-2"></i>
+                                Nouvelle expédition
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
-                            <a href="<?= $config['app']['url'] ?>/admin/reports" class="btn btn-outline-primary w-100">
+                            <a href="<?= $config['app']['url'] ?>/frontend/admin/reports" class="btn btn-outline-primary w-100">
                                 <i class="fas fa-chart-line me-2"></i>
                                 Générer rapport
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
-                            <a href="<?= $config['app']['url'] ?>/admin/shipments" class="btn btn-outline-primary w-100">
+                            <a href="<?= $config['app']['url'] ?>/frontend/admin/shipments" class="btn btn-outline-primary w-100">
                                 <i class="fas fa-list me-2"></i>
                                 Toutes les expéditions
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
-                            <a href="<?= $config['app']['url'] ?>/admin/settings" class="btn btn-outline-primary w-100">
+                            <a href="<?= $config['app']['url'] ?>/frontend/admin/settings" class="btn btn-outline-primary w-100">
                                 <i class="fas fa-cogs me-2"></i>
                                 Configuration
                             </a>
@@ -193,80 +193,19 @@ $title = 'Dashboard Admin - FretPlanner';
                 </div>
             </div>
 
-            <!-- Users management -->
+            <!-- Recent activity au lieu de la gestion des utilisateurs -->
             <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3 class="card-title">Gestion des utilisateurs</h3>
-                    <div>
-                        <a href="<?= $config['app']['url'] ?>/admin/users/create" class="btn btn-primary btn-sm">
-                            <i class="fas fa-plus me-1"></i>
-                            Nouvel utilisateur
-                        </a>
-                        <a href="<?= $config['app']['url'] ?>/admin/users" class="btn btn-outline-primary btn-sm">
-                            Voir tout
-                        </a>
-                    </div>
+                <div class="card-header">
+                    <h3 class="card-title">Activité récente</h3>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Utilisateur</th>
-                                <th>Email</th>
-                                <th>Rôle</th>
-                                <th>Statut</th>
-                                <th>Date d'inscription</th>
-                                <th>Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php if (!empty($users)): ?>
-                                <?php foreach (array_slice($users, 0, 5) as $userItem): ?>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="user-avatar me-2" style="width: 32px; height: 32px; font-size: 0.75rem;">
-                                                    <?= strtoupper(substr($userItem['first_name'], 0, 1)) ?>
-                                                </div>
-                                                <div>
-                                                    <div class="fw-semibold"><?= htmlspecialchars($userItem['first_name'] . ' ' . $userItem['last_name']) ?></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><?= htmlspecialchars($userItem['email']) ?></td>
-                                        <td>
-                                                    <span class="badge <?= $userItem['role'] === 'admin' ? 'badge-primary' : 'badge-secondary' ?>">
-                                                        <?= ucfirst($userItem['role']) ?>
-                                                    </span>
-                                        </td>
-                                        <td>
-                                                    <span class="badge <?= $userItem['is_active'] ? 'badge-success' : 'badge-danger' ?>">
-                                                        <?= $userItem['is_active'] ? 'Actif' : 'Inactif' ?>
-                                                    </span>
-                                        </td>
-                                        <td><?= date('d/m/Y', strtotime($userItem['created_at'])) ?></td>
-                                        <td>
-                                            <div class="btn-group btn-group-sm">
-                                                <a href="<?= $config['app']['url'] ?>/admin/users/<?= $userItem['id'] ?>" class="btn btn-outline-primary">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                                <a href="<?= $config['app']['url'] ?>/admin/users/<?= $userItem['id'] ?>/edit" class="btn btn-outline-secondary">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <tr>
-                                    <td colspan="6" class="text-center text-muted py-4">
-                                        Aucun utilisateur trouvé.
-                                    </td>
-                                </tr>
-                            <?php endif; ?>
-                            </tbody>
-                        </table>
+                    <div class="text-center text-muted py-4">
+                        <i class="fas fa-history fa-2x mb-3 d-block"></i>
+                        Aucune activité récente à afficher.
+                        <br><br>
+                        <small>
+                            Pour gérer les utilisateurs, utilisez le menu <strong>"Utilisateurs"</strong> dans la barre latérale.
+                        </small>
                     </div>
                 </div>
             </div>

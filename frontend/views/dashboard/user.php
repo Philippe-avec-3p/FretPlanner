@@ -24,7 +24,7 @@ $title = 'Dashboard - FretPlanner';
     <!-- Sidebar -->
     <nav class="sidebar">
         <div class="sidebar-header">
-            <a href="<?= $config['app']['url'] ?>../../index.php" class="sidebar-brand">
+            <a href="<?= $config['app']['url'] ?>/dashboard" class="sidebar-brand">
                 <i class="fas fa-truck-moving me-2"></i>
                 <?= $config['app']['name'] ?>
             </a>
@@ -33,15 +33,15 @@ $title = 'Dashboard - FretPlanner';
         <div class="sidebar-nav">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>../../index.php" class="nav-link active">
+                    <a href="<?= $config['app']['url'] ?>/dashboard" class="nav-link active">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>../../index.php" class="nav-link">
-                        <i class="fas fa-shipping-fast"></i>
-                        <span>Mes Expéditions</span>
+                    <a href="/FretPlanner/frontend/users" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Équipe</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -51,7 +51,7 @@ $title = 'Dashboard - FretPlanner';
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>../../index.php" class="nav-link">
+                    <a href="<?= $config['app']['url'] ?>/tracking" class="nav-link">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Suivi</span>
                     </a>
@@ -60,19 +60,19 @@ $title = 'Dashboard - FretPlanner';
                 <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
 
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>../../index.php" class="nav-link">
+                    <a href="<?= $config['app']['url'] ?>/profile" class="nav-link">
                         <i class="fas fa-user"></i>
                         <span>Mon Profil</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>../../index.php" class="nav-link">
+                    <a href="<?= $config['app']['url'] ?>/settings" class="nav-link">
                         <i class="fas fa-cog"></i>
                         <span>Paramètres</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>../../index.php" class="nav-link" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')">
+                    <a href="<?= $config['app']['url'] ?>/logout" class="nav-link" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Déconnexion</span>
                     </a>
@@ -105,10 +105,10 @@ $title = 'Dashboard - FretPlanner';
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>../../index.php"><i class="fas fa-user me-2"></i>Mon Profil</a></li>
-                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>../../index.php"><i class="fas fa-cog me-2"></i>Paramètres</a></li>
+                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/profile"><i class="fas fa-user me-2"></i>Mon Profil</a></li>
+                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/settings"><i class="fas fa-cog me-2"></i>Paramètres</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>../../index.php" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')"><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</a></li>
+                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/logout" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')"><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</a></li>
                         </ul>
                     </div>
                 </div>
@@ -172,19 +172,19 @@ $title = 'Dashboard - FretPlanner';
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
-                            <a href="<?= $config['app']['url'] ?>../../index.php" class="btn btn-outline-primary w-100">
+                            <a href="<?= $config['app']['url'] ?>/tracking" class="btn btn-outline-primary w-100">
                                 <i class="fas fa-search me-2"></i>
                                 Suivi de colis
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
-                            <a href="<?= $config['app']['url'] ?>../../index.php" class="btn btn-outline-primary w-100">
+                            <a href="<?= $config['app']['url'] ?>/shipments" class="btn btn-outline-primary w-100">
                                 <i class="fas fa-list me-2"></i>
                                 Mes expéditions
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
-                            <a href="<?= $config['app']['url'] ?>../../index.php" class="btn btn-outline-primary w-100">
+                            <a href="<?= $config['app']['url'] ?>/reports" class="btn btn-outline-primary w-100">
                                 <i class="fas fa-chart-bar me-2"></i>
                                 Rapports
                             </a>
@@ -197,7 +197,7 @@ $title = 'Dashboard - FretPlanner';
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3 class="card-title">Expéditions récentes</h3>
-                    <a href="<?= $config['app']['url'] ?>../../index.php" class="btn btn-sm btn-outline-primary">
+                    <a href="<?= $config['app']['url'] ?>/shipments" class="btn btn-sm btn-outline-primary">
                         Voir tout
                     </a>
                 </div>
