@@ -33,7 +33,7 @@ class UserController extends BaseController {
 
         if (!$id) {
             Session::flash('error', 'ID utilisateur manquant');
-            header('Location: /FretPlanner/frontend/users');
+            header('Location: /FretPlanner/users');
             exit();
         }
 
@@ -41,7 +41,7 @@ class UserController extends BaseController {
 
         if (!$targetUser) {
             Session::flash('error', 'Utilisateur non trouvé');
-            header('Location: /FretPlanner/frontend/users');
+            header('Location: /FretPlanner/users');
             exit();
         }
 
@@ -84,14 +84,14 @@ class UserController extends BaseController {
         // Validation
         if (empty($email) || empty($password) || empty($firstName) || empty($lastName)) {
             Session::flash('error', 'Tous les champs sont requis');
-            header('Location: /FretPlanner/frontend/users/create');
+            header('Location: /FretPlanner/users/create');
             exit();
         }
 
         // Vérifier si l'email existe déjà
         if ($this->userModel->findByEmail($email)) {
             Session::flash('error', 'Cet email est déjà utilisé');
-            header('Location: /FretPlanner/frontend/users/create');
+            header('Location: /FretPlanner/users/create');
             exit();
         }
 
@@ -105,12 +105,12 @@ class UserController extends BaseController {
             ]);
 
             Session::flash('success', 'Utilisateur créé avec succès');
-            header('Location: /FretPlanner/frontend/users');
+            header('Location: /FretPlanner/users');
             exit();
 
         } catch (Exception $e) {
             Session::flash('error', 'Erreur lors de la création: ' . $e->getMessage());
-            header('Location: /FretPlanner/frontend/users/create');
+            header('Location: /FretPlanner/users/create');
             exit();
         }
     }
@@ -172,12 +172,12 @@ class UserController extends BaseController {
             ]);
 
             Session::flash('success', 'Utilisateur mis à jour avec succès');
-            header('Location: /FretPlanner/frontend/users');
+            header('Location: /FretPlanner/users');
             exit();
 
         } catch (Exception $e) {
             Session::flash('error', 'Erreur lors de la mise à jour: ' . $e->getMessage());
-            header('Location: /FretPlanner/frontend/users/' . $id . '/edit');
+            header('Location: /FretPlanner/users/' . $id . '/edit');
             exit();
         }
     }
@@ -201,7 +201,7 @@ class UserController extends BaseController {
             Session::flash('error', 'Erreur lors de la suppression: ' . $e->getMessage());
         }
 
-        header('Location: /FretPlanner/frontend/users');
+        header('Location: /FretPlanner/users');
         exit();
     }
 }

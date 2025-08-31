@@ -37,7 +37,7 @@ $title = 'Connexion - FretPlanner';
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="/FretPlanner/frontend/login">
+            <form method="POST" action="/FretPlanner/login">
                 <div class="form-group">
                     <label for="email" class="form-label">
                         <i class="fas fa-envelope me-2"></i>

@@ -45,9 +45,9 @@ $title = 'Dashboard Admin - FretPlanner';
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>/admin/shipments" class="nav-link">
+                    <a href="<?= $config['app']['url'] ?>/admin/transports" class="nav-link">
                         <i class="fas fa-shipping-fast"></i>
-                        <span>Expéditions</span>
+                        <span>Transports</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -166,9 +166,9 @@ $title = 'Dashboard Admin - FretPlanner';
                 <div class="card-body">
                     <div class="row g-3">
                         <div class="col-md-6 col-lg-3">
-                            <a href="<?= $config['app']['url'] ?>/frontend/admin/shipments" class="btn btn-primary w-100">
+                            <a href="<?= $config['app']['url'] ?>/frontend/admin/transports" class="btn btn-primary w-100">
                                 <i class="fas fa-shipping-fast me-2"></i>
-                                Nouvelle expédition
+                                Nouveau transport
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
@@ -178,9 +178,9 @@ $title = 'Dashboard Admin - FretPlanner';
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
-                            <a href="<?= $config['app']['url'] ?>/frontend/admin/shipments" class="btn btn-outline-primary w-100">
+                            <a href="<?= $config['app']['url'] ?>/frontend/admin/transports" class="btn btn-outline-primary w-100">
                                 <i class="fas fa-list me-2"></i>
-                                Toutes les expéditions
+                                Tout les transports
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">

@@ -4,7 +4,7 @@
 return [
     'app' => [
         'name' => 'FretPlanner',
-        'url' => 'http://localhost/fretplanner',
+        'url' => 'http://localhost/FretPlanner',  // Maintenant depuis la racine
         'timezone' => 'Europe/Paris'
     ],
     'session' => [
@@ -13,6 +13,6 @@ return [
     ],
     'paths' => [
         'views' => __DIR__ . '/../../frontend/views',
-        'assets' => '/fretplanner/frontend/assets'
+        'assets' => '/FretPlanner/assets'  // Retirer frontend du chemin des assets
     ]
 ];

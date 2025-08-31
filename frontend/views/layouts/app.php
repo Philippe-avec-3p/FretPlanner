@@ -49,9 +49,9 @@ $isAdmin = $user && $user['role'] === 'admin';
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= $appUrl ?>/admin/shipments" class="nav-link">
+                        <a href="<?= $appUrl ?>/admin/transports" class="nav-link">
                             <i class="fas fa-shipping-fast"></i>
-                            <span>Expéditions</span>
+                            <span>transports</span>
                         </a>
                     </li>
                     <li class="nav-item">

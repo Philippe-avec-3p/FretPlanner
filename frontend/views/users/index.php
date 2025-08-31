@@ -26,7 +26,7 @@ $isAdmin = ($currentUserRole === 'admin');
     <!-- Sidebar -->
     <nav class="sidebar">
         <div class="sidebar-header">
-            <a href="<?= $config['app']['url'] ?>/frontend/<?= $isAdmin ? 'admin/dashboard' : 'dashboard' ?>" class="sidebar-brand">
+            <a href="<?= $config['app']['url'] ?>/<?= $isAdmin ? 'admin/dashboard' : 'dashboard' ?>" class="sidebar-brand">
                 <i class="fas fa-truck-moving me-2"></i>
                 <?= $config['app']['name'] ?>
             </a>
@@ -36,50 +36,50 @@ $isAdmin = ($currentUserRole === 'admin');
             <ul class="nav flex-column">
                 <?php if ($isAdmin): ?>
                     <li class="nav-item">
-                        <a href="<?= $config['app']['url'] ?>/frontend/admin/dashboard" class="nav-link">
+                        <a href="<?= $config['app']['url'] ?>/admin/dashboard" class="nav-link">
                             <i class="fas fa-tachometer-alt"></i>
                             <span>Dashboard Admin</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/FretPlanner/frontend/users" class="nav-link active">
+                        <a href="<?= $config['app']['url'] ?>/users" class="nav-link active">
                             <i class="fas fa-users"></i>
                             <span>Utilisateurs</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= $config['app']['url'] ?>/frontend/admin/shipments" class="nav-link">
+                        <a href="<?= $config['app']['url'] ?>/admin/transports" class="nav-link">
                             <i class="fas fa-shipping-fast"></i>
-                            <span>Expéditions</span>
+                            <span>Transports</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= $config['app']['url'] ?>/frontend/admin/reports" class="nav-link">
+                        <a href="<?= $config['app']['url'] ?>/admin/reports" class="nav-link">
                             <i class="fas fa-chart-bar"></i>
                             <span>Rapports</span>
                         </a>
                     </li>
                 <?php else: ?>
                     <li class="nav-item">
-                        <a href="<?= $config['app']['url'] ?>/frontend/dashboard" class="nav-link">
+                        <a href="<?= $config['app']['url'] ?>/dashboard" class="nav-link">
                             <i class="fas fa-tachometer-alt"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= $config['app']['url'] ?>/frontend/users" class="nav-link active">
+                        <a href="<?= $config['app']['url'] ?>/users" class="nav-link active">
                             <i class="fas fa-users"></i>
                             <span>Équipe</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= $config['app']['url'] ?>/frontend/shipments" class="nav-link">
+                        <a href="<?= $config['app']['url'] ?>/transports" class="nav-link">
                             <i class="fas fa-shipping-fast"></i>
-                            <span>Mes Expéditions</span>
+                            <span>Mes transports</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= $config['app']['url'] ?>/frontend/tracking" class="nav-link">
+                        <a href="<?= $config['app']['url'] ?>/tracking" class="nav-link">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Suivi</span>
                         </a>
@@ -89,13 +89,13 @@ $isAdmin = ($currentUserRole === 'admin');
                 <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
 
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>/frontend/profile" class="nav-link">
+                    <a href="<?= $config['app']['url'] ?>/profile" class="nav-link">
                         <i class="fas fa-user"></i>
                         <span>Mon Profil</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>/frontend/logout" class="nav-link" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')">
+                    <a href="<?= $config['app']['url'] ?>/logout" class="nav-link" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Déconnexion</span>
                     </a>
@@ -130,10 +130,10 @@ $isAdmin = ($currentUserRole === 'admin');
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/frontend/profile"><i class="fas fa-user me-2"></i>Mon Profil</a></li>
-                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/frontend/settings"><i class="fas fa-cog me-2"></i>Paramètres</a></li>
+                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/profile"><i class="fas fa-user me-2"></i>Mon Profil</a></li>
+                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/settings"><i class="fas fa-cog me-2"></i>Paramètres</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/frontend/logout" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')"><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</a></li>
+                            <li><a class="dropdown-item" href="<?= $config['app']['url'] ?>/logout" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')"><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</a></li>
                         </ul>
                     </div>
                 </div>
@@ -165,7 +165,7 @@ $isAdmin = ($currentUserRole === 'admin');
                     </p>
                 </div>
                 <?php if ($isAdmin): ?>
-                    <a href="/FretPlanner/frontend/users/create" class="btn btn-primary">
+                    <a href="<?= $config['app']['url'] ?>/users/create" class="btn btn-primary">
                         <i class="fas fa-user-plus me-2"></i>
                         Nouvel utilisateur
                     </a>
@@ -233,16 +233,16 @@ $isAdmin = ($currentUserRole === 'admin');
                                         <?php if ($isAdmin): ?>
                                             <td>
                                                 <div class="btn-group btn-group-sm">
-                                                    <a href="<?= $config['app']['url'] ?>/frontend/users/show?id=<?= $userItem['id'] ?>"
+                                                    <a href="<?= $config['app']['url'] ?>/users/show?id=<?= $userItem['id'] ?>"
                                                        class="btn btn-outline-primary" title="Voir">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
-                                                    <a href="<?= $config['app']['url'] ?>/frontend/users/edit?id=<?= $userItem['id'] ?>"
+                                                    <a href="<?= $config['app']['url'] ?>/users/edit?id=<?= $userItem['id'] ?>"
                                                        class="btn btn-outline-secondary" title="Modifier">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
                                                     <?php if ($userItem['id'] != $user['id']): ?>
-                                                        <form method="POST" action="<?= $config['app']['url'] ?>/frontend/users/delete"
+                                                        <form method="POST" action="<?= $config['app']['url'] ?>/users/delete"
                                                               style="display: inline;"
                                                               onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">
                                                             <input type="hidden" name="id" value="<?= $userItem['id'] ?>">

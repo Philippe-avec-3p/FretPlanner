@@ -1,12 +1,11 @@
 <?php
-// frontend/index.php
+// FretPlanner/index.php (racine du projet)
 
 // Démarrage de l'application
-require_once __DIR__ . '/../backend/bootstrap.php';
+require_once __DIR__ . '/backend/bootstrap.php';
 
 // Récupération du routeur
-$router = require __DIR__ . '/../backend/routes/web.php';
+$router = require __DIR__ . '/backend/routes/web.php';
 
 // Résolution de la route
 $router->resolve();
-?>

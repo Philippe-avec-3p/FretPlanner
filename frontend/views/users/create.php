@@ -25,7 +25,7 @@ $isAdmin = ($user['role'] === 'admin');
     <!-- Sidebar -->
     <nav class="sidebar">
         <div class="sidebar-header">
-            <a href="<?= $config['app']['url'] ?>/frontend/admin/dashboard" class="sidebar-brand">
+            <a href="<?= $config['app']['url'] ?>/admin/dashboard" class="sidebar-brand">
                 <i class="fas fa-truck-moving me-2"></i>
                 <?= $config['app']['name'] ?>
             </a>
@@ -34,25 +34,25 @@ $isAdmin = ($user['role'] === 'admin');
         <div class="sidebar-nav">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>/frontend/admin/dashboard" class="nav-link">
+                    <a href="<?= $config['app']['url'] ?>/admin/dashboard" class="nav-link">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard Admin</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>/frontend/users" class="nav-link active">
+                    <a href="<?= $config['app']['url'] ?>/users" class="nav-link active">
                         <i class="fas fa-users"></i>
                         <span>Utilisateurs</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>/frontend/admin/shipments" class="nav-link">
+                    <a href="<?= $config['app']['url'] ?>/admin/transports" class="nav-link">
                         <i class="fas fa-shipping-fast"></i>
-                        <span>Expéditions</span>
+                        <span>transports</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>/frontend/admin/reports" class="nav-link">
+                    <a href="<?= $config['app']['url'] ?>/admin/reports" class="nav-link">
                         <i class="fas fa-chart-bar"></i>
                         <span>Rapports</span>
                     </a>
@@ -61,13 +61,13 @@ $isAdmin = ($user['role'] === 'admin');
                 <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
 
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>/frontend/profile" class="nav-link">
+                    <a href="<?= $config['app']['url'] ?>/profile" class="nav-link">
                         <i class="fas fa-user"></i>
                         <span>Mon Profil</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $config['app']['url'] ?>/frontend/logout" class="nav-link" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')">
+                    <a href="<?= $config['app']['url'] ?>/logout" class="nav-link" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?')">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Déconnexion</span>
                     </a>
@@ -89,7 +89,7 @@ $isAdmin = ($user['role'] === 'admin');
                 </div>
 
                 <div class="header-actions">
-                    <a href="<?= $config['app']['url'] ?>/frontend/users" class="btn btn-secondary">
+                    <a href="<?= $config['app']['url'] ?>/users" class="btn btn-secondary">
                         <i class="fas fa-arrow-left me-2"></i>
                         Retour à la liste
                     </a>
@@ -125,7 +125,7 @@ $isAdmin = ($user['role'] === 'admin');
                             </h3>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="<?= $config['app']['url'] ?>/frontend/users/store">
+                            <form method="POST" action="<?= $config['app']['url'] ?>/users/store">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -134,13 +134,13 @@ $isAdmin = ($user['role'] === 'admin');
                                                 Prénom *
                                             </label>
                                             <input
-                                                type="text"
-                                                class="form-control"
-                                                id="first_name"
-                                                name="first_name"
-                                                placeholder="John"
-                                                value="<?= htmlspecialchars($_POST['first_name'] ?? '') ?>"
-                                                required
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="first_name"
+                                                    name="first_name"
+                                                    placeholder="John"
+                                                    value="<?= htmlspecialchars($_POST['first_name'] ?? '') ?>"
+                                                    required
                                             >
                                         </div>
                                     </div>
@@ -152,13 +152,13 @@ $isAdmin = ($user['role'] === 'admin');
                                                 Nom *
                                             </label>
                                             <input
-                                                type="text"
-                                                class="form-control"
-                                                id="last_name"
-                                                name="last_name"
-                                                placeholder="Doe"
-                                                value="<?= htmlspecialchars($_POST['last_name'] ?? '') ?>"
-                                                required
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="last_name"
+                                                    name="last_name"
+                                                    placeholder="Doe"
+                                                    value="<?= htmlspecialchars($_POST['last_name'] ?? '') ?>"
+                                                    required
                                             >
                                         </div>
                                     </div>
@@ -170,13 +170,13 @@ $isAdmin = ($user['role'] === 'admin');
                                         Adresse email *
                                     </label>
                                     <input
-                                        type="email"
-                                        class="form-control"
-                                        id="email"
-                                        name="email"
-                                        placeholder="john.doe@fretplanner.com"
-                                        value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
-                                        required
+                                            type="email"
+                                            class="form-control"
+                                            id="email"
+                                            name="email"
+                                            placeholder="john.doe@fretplanner.com"
+                                            value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
+                                            required
                                     >
                                 </div>
 
@@ -186,13 +186,13 @@ $isAdmin = ($user['role'] === 'admin');
                                         Mot de passe *
                                     </label>
                                     <input
-                                        type="password"
-                                        class="form-control"
-                                        id="password"
-                                        name="password"
-                                        placeholder="Minimum 6 caractères"
-                                        minlength="6"
-                                        required
+                                            type="password"
+                                            class="form-control"
+                                            id="password"
+                                            name="password"
+                                            placeholder="Minimum 6 caractères"
+                                            minlength="6"
+                                            required
                                     >
                                     <small class="text-muted">Le mot de passe doit contenir au moins 6 caractères.</small>
                                 </div>
@@ -221,7 +221,7 @@ $isAdmin = ($user['role'] === 'admin');
                                         <i class="fas fa-save me-2"></i>
                                         Créer l'utilisateur
                                     </button>
-                                    <a href="<?= $config['app']['url'] ?>/frontend/users" class="btn btn-secondary">
+                                    <a href="<?= $config['app']['url'] ?>/users" class="btn btn-secondary">
                                         <i class="fas fa-times me-2"></i>
                                         Annuler
                                     </a>

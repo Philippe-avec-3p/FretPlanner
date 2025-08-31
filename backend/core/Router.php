@@ -27,7 +27,7 @@ class Router {
         $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         // Enlever le chemin de base
-        $basePath = '/FretPlanner/frontend';
+        $basePath = '/FretPlanner';
         if (strpos($requestPath, $basePath) === 0) {
             $requestPath = substr($requestPath, strlen($basePath));
         }
@@ -60,12 +60,21 @@ class Router {
             }
         }
 
-        // 404 - Route non trouvée
+        // 404 - Route non trouvée - AVEC DEBUG
         http_response_code(404);
         echo "<h1>404 - Page non trouvée</h1>";
         echo "<p><strong>Route demandée :</strong> " . htmlspecialchars($requestPath) . "</p>";
         echo "<p><strong>URI complète :</strong> " . htmlspecialchars($_SERVER['REQUEST_URI']) . "</p>";
-        echo "<p><a href='/FretPlanner/frontend/'>Retour à l'accueil</a></p>";
+        echo "<p><strong>Méthode :</strong> " . htmlspecialchars($requestMethod) . "</p>";
+
+        // Debug: afficher les routes disponibles
+        echo "<h2>Routes disponibles dans le routeur :</h2><ul>";
+        foreach ($this->routes as $route) {
+            echo "<li><strong>{$route['method']}</strong> {$route['path']}</li>";
+        }
+        echo "</ul>";
+
+        echo "<p><a href='/FretPlanner/'>Retour à l'accueil</a></p>";
     }
 
     private function matchPath($routePath, $requestPath) {

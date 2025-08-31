@@ -32,7 +32,7 @@ class AuthController extends BaseController {
         // Validation simple
         if (empty($email) || empty($password)) {
             Session::flash('error', 'Veuillez remplir tous les champs');
-            header('Location: /FretPlanner/frontend/login');
+            header('Location: /FretPlanner/login');
             exit();
         }
 
@@ -41,7 +41,7 @@ class AuthController extends BaseController {
 
         if (!$user || !$this->userModel->verifyPassword($password, $user['password'])) {
             Session::flash('error', 'Email ou mot de passe incorrect');
-            header('Location: /FretPlanner/frontend/login');
+            header('Location: /FretPlanner/login');
             exit();
         }
 
@@ -50,17 +50,17 @@ class AuthController extends BaseController {
 
         // Redirection selon le rôle
         if ($user['role'] === 'admin') {
-            header('Location: /FretPlanner/frontend/admin/dashboard');
+            header('Location: /FretPlanner/admin/dashboard');
             exit();
         } else {
-            header('Location: /FretPlanner/frontend/dashboard');
+            header('Location: /FretPlanner/dashboard');
             exit();
         }
     }
 
     public function logout() {
         Session::logout();
-        header('Location: /FretPlanner/frontend/login');
+        header('Location: /FretPlanner/login');
         exit();
     }
 }

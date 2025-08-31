@@ -1,0 +1,23 @@
+# FretPlanner/.htaccess (racine du projet)
+
+RewriteEngine On
+
+# Rediriger toutes les requêtes vers index.php sauf pour les fichiers existants
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Permettre l'accès aux assets du frontend
+RewriteCond %{REQUEST_URI} ^/FretPlanner/frontend/assets/
+RewriteRule ^.*$ - [L]
+
+# Empêcher l'accès direct au dossier backend
+RewriteCond %{REQUEST_URI} ^/FretPlanner/backend/
+RewriteRule ^.*$ - [F,L]
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options DENY
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>

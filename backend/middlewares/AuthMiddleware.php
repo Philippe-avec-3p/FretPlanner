@@ -4,8 +4,8 @@
 class AuthMiddleware {
     public function handle() {
         if (!Session::isLoggedIn()) {
-            $router = new Router();
-            $router->redirect('/login');
+            header('Location: http://localhost/FretPlanner/login');
+            exit();
             return false;
         }
         return true;
@@ -15,15 +15,15 @@ class AuthMiddleware {
 class AdminMiddleware {
     public function handle() {
         if (!Session::isLoggedIn()) {
-            $router = new Router();
-            $router->redirect('/login');
+            header('Location: http://localhost/FretPlanner/login');
+            exit();
             return false;
         }
 
         $user = Session::getUser();
         if ($user['role'] !== 'admin') {
-            $router = new Router();
-            $router->redirect('/dashboard');
+            header('Location: http://localhost/FretPlanner/dashboard');
+            exit();
             return false;
         }
 
@@ -34,8 +34,8 @@ class AdminMiddleware {
 class GuestMiddleware {
     public function handle() {
         if (Session::isLoggedIn()) {
-            $router = new Router();
-            $router->redirect('/dashboard');
+            header('Location: http://localhost/FretPlanner/dashboard');
+            exit();
             return false;
         }
         return true;

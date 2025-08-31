@@ -39,7 +39,7 @@ $title = 'Dashboard - FretPlanner';
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/FretPlanner/frontend/users" class="nav-link">
+                    <a href="<?= $config['app']['url'] ?>/users" class="nav-link">
                         <i class="fas fa-users"></i>
                         <span>Équipe</span>
                     </a>
@@ -129,15 +129,15 @@ $title = 'Dashboard - FretPlanner';
                     <div class="stat-icon blue">
                         <i class="fas fa-shipping-fast"></i>
                     </div>
-                    <div class="stat-value"><?= $stats['total_shipments'] ?></div>
-                    <div class="stat-label">Total des expéditions</div>
+                    <div class="stat-value"><?= $stats['total_transports'] ?></div>
+                    <div class="stat-label">Total des transports</div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-icon yellow">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <div class="stat-value"><?= $stats['pending_shipments'] ?></div>
+                    <div class="stat-value"><?= $stats['pending_transports'] ?></div>
                     <div class="stat-label">En attente</div>
                 </div>
 
@@ -145,16 +145,16 @@ $title = 'Dashboard - FretPlanner';
                     <div class="stat-icon green">
                         <i class="fas fa-check-circle"></i>
                     </div>
-                    <div class="stat-value"><?= $stats['completed_shipments'] ?></div>
-                    <div class="stat-label">Terminées</div>
+                    <div class="stat-value"><?= $stats['completed_transports'] ?></div>
+                    <div class="stat-label">Terminés</div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-icon blue">
-                        <i class="fas fa-euro-sign"></i>
+                        <i class="fas fa-weight-hanging"></i>
                     </div>
-                    <div class="stat-value"><?= number_format($stats['total_revenue'], 0, ',', ' ') ?>€</div>
-                    <div class="stat-label">Chiffre d'affaires</div>
+                    <div class="stat-value"><?= number_format($stats['total_weight'], 0) ?> kg</div>
+                    <div class="stat-label">Poids total</div>
                 </div>
             </div>
 
@@ -166,21 +166,21 @@ $title = 'Dashboard - FretPlanner';
                 <div class="card-body">
                     <div class="row g-3">
                         <div class="col-md-6 col-lg-3">
-                            <a href="<?= $config['app']['url'] ?>/shipments/create" class="btn btn-primary w-100">
+                            <a href="<?= $config['app']['url'] ?>/transports/create" class="btn btn-primary w-100">
                                 <i class="fas fa-plus-circle me-2"></i>
-                                Nouvelle expédition
+                                Nouveau transport
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <a href="<?= $config['app']['url'] ?>/tracking" class="btn btn-outline-primary w-100">
                                 <i class="fas fa-search me-2"></i>
-                                Suivi de colis
+                                Suivi de transport
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
-                            <a href="<?= $config['app']['url'] ?>/shipments" class="btn btn-outline-primary w-100">
+                            <a href="<?= $config['app']['url'] ?>/transports" class="btn btn-outline-primary w-100">
                                 <i class="fas fa-list me-2"></i>
-                                Mes expéditions
+                                Mes transports
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
@@ -193,11 +193,11 @@ $title = 'Dashboard - FretPlanner';
                 </div>
             </div>
 
-            <!-- Recent shipments -->
+            <!-- Recent transports -->
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3 class="card-title">Expéditions récentes</h3>
-                    <a href="<?= $config['app']['url'] ?>/shipments" class="btn btn-sm btn-outline-primary">
+                    <h3 class="card-title">Transports récents</h3>
+                    <a href="<?= $config['app']['url'] ?>/transports" class="btn btn-sm btn-outline-primary">
                         Voir tout
                     </a>
                 </div>
@@ -209,7 +209,7 @@ $title = 'Dashboard - FretPlanner';
                                 <th>Référence</th>
                                 <th>Destination</th>
                                 <th>Statut</th>
-                                <th>Date</th>
+                                <th>Date enlèvement</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -217,9 +217,9 @@ $title = 'Dashboard - FretPlanner';
                             <tr>
                                 <td colspan="5" class="text-center text-muted py-4">
                                     <i class="fas fa-shipping-fast fa-2x mb-3 d-block"></i>
-                                    Aucune expédition pour le moment.<br>
-                                    <a href="<?= $config['app']['url'] ?>/shipments/create" class="btn btn-primary btn-sm mt-2">
-                                        Créer votre première expédition
+                                    Aucun transport pour le moment.<br>
+                                    <a href="<?= $config['app']['url'] ?>/transports/create" class="btn btn-primary btn-sm mt-2">
+                                        Créer votre premier transport
                                     </a>
                                 </td>
                             </tr>
